@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--Written by Ese Curtis
+oct 2, 2020-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ChatBot</title>
+		<link rel="stylesheet" href="assets/style.css">
+	</head>
+	<body>
+	<!--chat body-->
+		<div class="chat-box">
+		<!--user details-->
+			<div class="user-data">
+				<div class="user-picture">
+					🤖
+				</div>
+				<div class="user-name">ChatBot</div>
+			</div>
+			<!--main conversation-->
+			<div class="main-conversation" id="main-conversation">
+				<div class="user">
+					<a class="bubble">
+						hello
+					</a>
+				</div>
+				<div class="reply">
+					<a class="bubble">
+						hi
+					</a>
+				</div>
+			</div>
+			<!--messages panel for sending messages-->
+			<div class="message-panel">
+				<input type="text" placeholder="Aa.." id="send-value">
+				<button id="send-button">send</button>
+			</div>
+		</div>
+		<script src="assets/main.js"></script>
+	</body>
+</html>
