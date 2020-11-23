@@ -7,6 +7,7 @@ const sendButton = document.getElementById('send-button');
 const sendValue = document.getElementById('send-value');
 
 //define the contant functions
+//sending messages
 const send = str=>{
 	var message = document.createElement('div');
 	message.className = 'user';
@@ -15,6 +16,7 @@ const send = str=>{
 	mainConversation.append(message);
 	mainConversation.scrollTo(0, mainConversation.scrollHeight);
 }
+//replying messages
 const reply = str=>{
 	var message = document.createElement('div');
 	message.className = 'reply';
