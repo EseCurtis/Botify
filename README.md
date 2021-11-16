@@ -11,5 +11,5 @@ example
      reply:"hi"
    }
 ]
-\n
+<br>
 check demo at https://esecodes-simple-chatbot.netlify.app/
