@@ -1,4 +1,4 @@
-# simple-chatbot
+# Botify
 A simple chatbot designed with JavaScript html and css
 
 
