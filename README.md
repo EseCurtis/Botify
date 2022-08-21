@@ -1,16 +1,17 @@
 # Botify
-A simple chatbot designed with JavaScript html and css
+A simple chatbot template designed with JavaScript(es6) HTML5 and CSS3
 
-
-The memory of the chatbot is stored in the memoryDict array
+##Usage'
+--inside ```javascript ./assets/config.js ```
+use this to add more words and replies to botify memory
 ```javascript
-example
-[
-  ‎  {
-    ‎ message:"hello",
-     reply:"hi"
-   }
-]
+  configBotify([
+  {
+    "message":"Your message",
+    "reply":"any reply"
+  },
+  ...
+])
 ```
 <br>
 check demo at https://esecodes-simple-chatbot.netlify.app/
