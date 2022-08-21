@@ -61,9 +61,15 @@ sendButton.addEventListener('click',()=>{
 });
 
 //chatbot dictionary 
-const wordDict = [
+let wordDict = [
 	{
 		message:"hello",
 		reply:"hi"
 	},
 ];
+
+const configBotify = (config = []) => {
+	if(typeof config == 'Array') return console.warn('please input a valid config for botify')
+	return wordDict = config.concat(wordDict)
+}
+
