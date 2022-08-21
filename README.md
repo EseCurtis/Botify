@@ -1,8 +1,8 @@
 # Botify
 A simple chatbot template designed with JavaScript(es6) HTML5 and CSS3
 
-##Usage'
---inside ```javascript ./assets/config.js ```
+##Usage <br>
+--inside ```javascript ./assets/config.js ``` <br>
 use this to add more words and replies to botify memory
 ```javascript
   configBotify([
