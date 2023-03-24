@@ -1,75 +1,78 @@
-/*Written by Ese Curtis
-oct 2, 2020*/
+/* Written by Ese Curtis
+   Oct 2, 2020
+*/
 
-//define the constants 
-const mainConversation = document.getElementById('main-conversation');
+// Define the constants
+const conversationContainer = document.getElementById('conversation-container');
 const sendButton = document.getElementById('send-button');
-const sendValue = document.getElementById('send-value');
+const sendInput = document.getElementById('send-input');
 
-//define the contant functions
-//sending messages
-const send = str=>{
-	var message = document.createElement('div');
-	message.className = 'user';
-	var messageContent = '<a class="bubble">'+htmlEnt(str)+'</a>';
-	message.innerHTML = messageContent;
-	mainConversation.append(message);
-	mainConversation.scrollTo(0, mainConversation.scrollHeight);
-}
-//replying messages
-const reply = str=>{
-	var message = document.createElement('div');
-	message.className = 'reply';
-	var messageContent = '<a class="bubble">'+htmlEnt(str)+'</a>';
-	message.innerHTML = messageContent;
-	mainConversation.append(message);
-	mainConversation.scrollTo(0, mainConversation.scrollHeight);
-}
-//purify input
-const htmlEnt = str=>{
-	str = str.replace(/</g, '&lt')
-		  .replace(/>/g, '&gt')
-		  .replace(/\n/g, '<br>');
-		  
-	return str;
-}
+// Define the constant functions
+// Send messages
+const sendMessage = (message) => {
+  const messageElement = document.createElement('div');
+  messageElement.className = 'user-message';
+  const messageContent = '<a class="message-bubble">' + sanitizeInput(message) + '</a>';
+  messageElement.innerHTML = messageContent;
+  conversationContainer.append(messageElement);
+  conversationContainer.scrollTo(0, conversationContainer.scrollHeight);
+};
 
-//compute messages
-const compute = str=>{
-let sent = 0;
-	setTimeout(()=>{
-		wordDict.forEach(element=>{
-			if(element.message == str){
-				reply(str);	
-				sent = 1;
-			}
-		});
-		if(sent == 0){
-			reply('sorry sir i wasn\'t taught that');	
-		}
-	}, 1100);
-}
+// Reply to messages
+const replyToMessage = (message) => {
+  const messageElement = document.createElement('div');
+  messageElement.className = 'bot-message';
+  const messageContent = '<a class="message-bubble">' + sanitizeInput(message) + '</a>';
+  messageElement.innerHTML = messageContent;
+  conversationContainer.append(messageElement);
+  conversationContainer.scrollTo(0, conversationContainer.scrollHeight);
+};
 
-//addition of the onclick listener to the send button
-sendButton.addEventListener('click',()=>{
-	let replyValue = sendValue.value.trim();
-	if(replyValue.length > 0){
-		send(replyValue);
-		sendValue.value = "";
-		compute(replyValue);
-	}
+// Sanitize user input
+const sanitizeInput = (input) => {
+  input = input.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>');
+  return input;
+};
+
+// Compute replies
+const computeReply = (input) => {
+  let sent = false;
+  setTimeout(() => {
+    wordDict.forEach((word) => {
+      if (word.message === input) {
+        replyToMessage(word.reply);
+        sent = true;
+      }
+    });
+    if (!sent) {
+      replyToMessage("Sorry, I wasn't taught that.");
+    }
+  }, 1100);
+};
+
+// Add click listener to send button
+sendButton.addEventListener('click', () => {
+  const inputValue = sendInput.value.trim();
+  if (inputValue.length > 0) {
+    sendMessage(inputValue);
+    sendInput.value = '';
+    computeReply(inputValue);
+  }
 });
 
-//chatbot dictionary 
+// Chatbot dictionary
 let wordDict = [
-	{
-		message:"hello",
-		reply:"hi"
-	},
+  {
+    message: 'hello',
+    reply: 'Hi!'
+  },
 ];
 
-const configBotify = (config = []) => {
-	if(typeof config == 'Array') return console.warn('please input a valid config for botify')
-	return wordDict = config.concat(wordDict)
-}
-
+// Config function for the chatbot
+const configureBot = (config = []) => {
+  if (!Array.isArray(config)) {
+    console.warn('Please provide a valid config for the bot.');
+    return;
+  }
+  wordDict = [...config, ...wordDict];
+};
