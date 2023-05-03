@@ -14,3 +14,9 @@ configBotify([
   },
   // Add more objects here
 ])
+```
+You can add as many objects as you want to Botify's memory to increase its knowledge and improve its responses.
+
+##Demo
+
+You can check out a live demo of Botify at https://esecurtis.github.io/Botify/.
