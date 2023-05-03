@@ -1,17 +1,16 @@
 # Botify
-A simple chatbot template designed with JavaScript(es6) HTML5 and CSS3
 
-##Usage <br>
---inside ```javascript ./assets/config.js ``` <br>
-use this to add more words and replies to botify memory
+Botify is a simple chatbot template designed with JavaScript (ES6), HTML5, and CSS3. With Botify, you can easily create a chatbot for your website or application that can answer user queries, automate customer service, and provide 24/7 support. Botify provides a user-friendly interface that allows you to customize its responses and integrate it into your website or application with minimal effort.
+
+## Usage
+
+To add more words and replies to Botify's memory, open the `./assets/config.js` file and use the following syntax:
+
 ```javascript
-  configBotify([
+configBotify([
   {
-    "message":"Your message",
-    "reply":"any reply"
+    "message": "Your message",
+    "reply": "Any reply"
   },
-  ...
+  // Add more objects here
 ])
-```
-<br>
-check demo at https://esecodes-simple-chatbot.netlify.app/
